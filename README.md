@@ -688,7 +688,10 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 
 In this phase, you'll set up a Kubernetes cluster with node groups. This will provide a scalable environment to deploy and manage your applications.
 
-## GO to local terminal and use AWS configure
+## create a machine to manage EKS cluster
+
+install kubernetes on machine
+
 then run command :- aws eks update-kubeconfig --name Netflix --region us-east-1
 
 install argoCD in EKS with this link :- https://archive.eksworkshop.com/intermediate/290_argocd/install/
