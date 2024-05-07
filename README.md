@@ -333,20 +333,20 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build --build-arg TMDB_V3_API_KEY=<yourapikey> -t netflix ."
-                       sh "docker tag netflix nasi101/netflix:latest "
-                       sh "docker push nasi101/netflix:latest "
+                       sh "docker tag netflix sid2516/netflix:latest "
+                       sh "docker push sid2516/netflix:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image nasi101/netflix:latest > trivyimage.txt" 
+                sh "trivy image sid2516/netflix:latest > trivyimage.txt" 
             }
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name netflix -p 8081:80 nasi101/netflix:latest'
+                sh 'docker run -d --name netflix -p 8081:80 sid2516/netflix:latest'
             }
         }
     }
@@ -687,6 +687,9 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 ## Create Kubernetes Cluster with Nodegroups
 
 In this phase, you'll set up a Kubernetes cluster with node groups. This will provide a scalable environment to deploy and manage your applications.
+
+## GO to local terminal and use AWS configure
+install argoCD in EKS with this link :- https://archive.eksworkshop.com/intermediate/290_argocd/install/
 
 ## Monitor Kubernetes with Prometheus
 
